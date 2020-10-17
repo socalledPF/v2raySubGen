@@ -6,7 +6,8 @@ const gists = new Gists({
   password: PASSWORD
 })
 
-const subscribeContent = VMESS_LINK.toString('base64')
+const vmessBuf = Buffer.from(VMESS_LINK)
+const subscribeContent = vmessBuf.toString('base64')
 
 gists.edit(GIST_ID, {
   files: {
