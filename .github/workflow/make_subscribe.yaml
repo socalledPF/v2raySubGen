@@ -1,0 +1,36 @@
+
+name: generate v2ray subscribe url link
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'
+  push:
+    branches:
+      - master
+
+jobs:
+  generate_subscribe_url:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: Install dependencies
+      run: |
+        npm install
+    - name: Run scripts
+      run: |
+        node index.js
+      env:
+        GH_USERNAME: ${{secrets.GH_USERNAME}}
+        GIST_ID: ${{secrets.GIST_ID}}
+        VMESS_LINK: ${{secrets.VMESS_LINK}}
+        PASSWORD: ${{secrets.PASSWORD}}
