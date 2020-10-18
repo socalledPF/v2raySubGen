@@ -7,13 +7,13 @@ const gists = new Gists({
 })
 
 async function getVmess() {
-  const { files: { 'v2ray_vmess.txt': { content } } } = await gists.get(VMESS_GIST_ID)
-  console.log(content)
+  const { body: { files: { 'v2ray_vmess.txt': { content } } } }= await gists.get(VMESS_GIST_ID)
   return content
 }
 
 async function writeSubscribeContent() {
-  const subscribeContent = await getVmess()
+  const vmessContent = await getVmess()
+  const subscribeContent = Buffer.from(vmessContent).toString('base64')
   await gists.edit(SUBSCRIBE_GIST_ID, {
     files: {
       'v2ray_subscribe.txt': {
