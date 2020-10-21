@@ -11,5 +11,7 @@
 * `PASSWORD` github密码
 
 ## 备注
-每隔30分钟生成一次。
+1. 每隔30分钟生成一次。
+2. 生成的订阅gist raw文件链接不同的version是不同的，需要固定订阅gist raw链接，参考
+[how to permalink a gist raw file](https://gist.github.com/atenni/5604615)
 
