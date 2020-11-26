@@ -2,14 +2,11 @@
 import axios from 'axios'
 const { GH_TOKEN, G_TOKEN, GH_USERNAME, SUBSCRIBE_GIST_ID, VMESS_GIST_ID } = process.env
 
-const auth = {
-  username: GH_USERNAME,
-  password: GH_TOKEN || G_TOKEN
-}
+
 
 const ghRequest = axios.create({
   headers: {
-    "Authorization": `token ${GH_TOKEN}`
+    "Authorization": `token 3fe5b979172c81578ac688e5c44a8a492a163ce9`
   },
   baseURL: 'https://api.github.com'
 })
