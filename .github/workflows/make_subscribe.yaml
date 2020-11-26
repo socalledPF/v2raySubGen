@@ -3,7 +3,7 @@ name: generate v2ray subscribe url link
 
 on:
   schedule:
-    - cron: '*/30 * * * *'
+    - cron: '* */2 * * *'
   push:
     branches:
       - master
