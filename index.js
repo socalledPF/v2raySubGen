@@ -1,10 +1,10 @@
 
 import axios from 'axios'
-const { GH_TOKEN, GH_USERNAME, SUBSCRIBE_GIST_ID, VMESS_GIST_ID } = process.env
+const { GH_TOKEN, G_TOKEN, GH_USERNAME, SUBSCRIBE_GIST_ID, VMESS_GIST_ID } = process.env
 
 const auth = {
   username: GH_USERNAME,
-  password: GH_TOKEN
+  password: GH_TOKEN || G_TOKEN
 }
 
 const ghRequest = axios.create({
