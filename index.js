@@ -8,7 +8,9 @@ const auth = {
 }
 
 const ghRequest = axios.create({
-  auth,
+  headers: {
+    "Authorization": `token ${GH_TOKEN}`
+  },
   baseURL: 'https://api.github.com'
 })
 
@@ -18,10 +20,11 @@ async function getVmess() {
 }
 
 async function editVemss(files, gistId) {
-  await ghRequest.patch(`/gists/${gistId}`, {
+  const res = await ghRequest.patch(`/gists/${gistId}`, {
     "gist_id": gistId,
     files
   })
+  console.log(res.data)
 }
 
 async function writeSubscribeContent() {
