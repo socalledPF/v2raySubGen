@@ -32,6 +32,7 @@ jobs:
         node index.js
       env:
         GH_USERNAME: ${{secrets.GH_USERNAME}}
+        GH_TOKEN: ${{secrets.GH_TOKEN}}
         SUBSCRIBE_GIST_ID: ${{secrets.SUBSCRIBE_GIST_ID}}
         VMESS_GIST_ID: ${{secrets.VMESS_GIST_ID}}
         PASSWORD: ${{secrets.PASSWORD}}
